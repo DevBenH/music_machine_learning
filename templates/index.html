@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+ <p class="small-note">Please select a song you you like which we can find similar recommendations for you.</p>
+  <div class="enter-music"> 
+    
+    <form action="http://localhost:5000/" method="POST" enctype="multipart/form-data">
+
+      <input type="file" id="avatar" name="file" accept="audio/mp3, audio/wav"/>
+      <input type="submit" class="btn btn-outline-secondary"></button>
+
+    </form>
+  </div>
+
+  {% if is_image %}
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <div class="card" style="margin-top:20px; width: 21rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ rec_song.keys()[0]}}</h5>
+            <p class="card-text">{{ '%0.2f' % rec_song[0]|float }}% match</p>
+            <audio controls>
+              <source src="{{ url_for('static', filename='genres_original/' ~ rec_song.keys()[0] ) }}" type="audio/wav">
+            Your browser does not support the audio element.
+            </audio>
+            <button type="button" class="btn btn-danger" style="margin-top: 5px;">Add To Playlist</button>
+
+    
+          </div>
+        </div> 
+      </div>
+      <div class="col">
+        <div class="card" style="margin-top:20px; width: 21rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ rec_song.keys()[1]}}</h5>
+            <p class="card-text">{{ '%0.2f' % rec_song[1]|float }}% match</p>
+            <audio controls>
+              <source src="{{ url_for('static', filename='genres_original/' ~ rec_song.keys()[1] ) }}" type="audio/wav">
+            Your browser does not support the audio element.
+            </audio>
+            <button type="button" class="btn btn-danger" style="margin-top: 5px;">Add To Playlist</button>
+
+          </div>
+        </div> 
+      </div>
+      <div class="col">
+        <div class="card" style="margin-top:20px; width: 21rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ rec_song.keys()[2]}}</h5>
+            <p class="card-text">{{ '%0.2f' % rec_song[2]|float }}% match</p>
+            <audio controls>
+              <source src="{{ url_for('static', filename='genres_original/' ~ rec_song.keys()[2] ) }}" type="audio/wav">
+            Your browser does not support the audio element.
+            </audio>
+            <button type="button" class="btn btn-danger" style="margin-top: 5px;">Add To Playlist</button>
+
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <div class="card" style="width: 21rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ rec_song.keys()[3]}}</h5>
+            <p class="card-text">{{ '%0.2f' % rec_song[3]|float }}% match</p>
+            <audio controls>
+              <source src="{{ url_for('static', filename='genres_original/' ~ rec_song.keys()[3] ) }}" type="audio/wav">
+            Your browser does not support the audio element.
+            </audio>
+            <button type="button" class="btn btn-danger" style="margin-top: 5px;">Add To Playlist</button>
+
+          </div>
+        </div> 
+      </div>
+      <div class="col">
+        <div class="card" style="width: 21rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ rec_song.keys()[4]}}</h5>
+            <p class="card-text">{{ '%0.2f' % rec_song[4]|float }}% match</p>
+            <audio controls>
+              <source src="{{ url_for('static', filename='genres_original/' ~ rec_song.keys()[4] ) }}" type="audio/wav">
+            Your browser does not support the audio element.
+            </audio>
+            <button type="button" class="btn btn-danger" style="margin-top: 5px;">Add To Playlist</button>
+
+          </div>
+        </div> 
+      </div>
+      <div class="col">
+        <div class="card" style="width: 21rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{ rec_song.keys()[5]}}</h5>
+            <p class="card-text">{{ '%0.2f' % rec_song[5]|float }}% match</p>
+            <audio controls>
+              <source src="{{ url_for('static', filename='genres_original/' ~ rec_song.keys()[5] ) }}" type="audio/wav">
+            Your browser does not support the audio element.
+            </audio>
+            <button type="button" class="btn btn-danger" style="margin-top: 5px;">Add To Playlist</button>
+
+          </div>
+        </div> 
+      </div>
+    </div>
+  </div>
+
+  
+  
+  <hr style="color: white; height: 10px;">
+  <p class="small-note">These are the audio fingerprint graphs we used to make these recommendations.</p>
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <img src="{{ url_for('static', filename='images/trimmed.png') }}" class="d-block w-100" alt="...">
+
+      </div>
+      <div class="col">
+        <img src="{{ url_for('static', filename='images/melspec.png') }}" class="d-block w-100" alt="...">
+      </div>
+      <div class="col">
+        <img src="{{ url_for('static', filename='images/mfccs.png') }}" class="d-block w-100" alt="...">
+      </div>
+      <div class="col">
+        <img src="{{ url_for('static', filename='images/chroma.png') }}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+
+
+  {% endif %}
+{% endblock content %}
